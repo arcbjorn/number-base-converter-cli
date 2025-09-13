@@ -63,7 +63,7 @@ fn test_convert_fractional_precision() {
     assert_eq!(result.len(), 5);
 
     let result = convert_fractional_part(&[3, 3, 3], 10, 2, 20);
-    assert!(result.len() <= 20);
+    assert_eq!(result, vec![0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1]);
 }
 
 #[test]

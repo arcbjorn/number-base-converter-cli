@@ -60,7 +60,7 @@ fn test_end_to_end_large_number() {
     let converted_int = convert_integer_part(&int_part, 10, 16);
     let converted_frac = convert_fractional_part(&frac_part, 10, 16, 8);
     let result = format_result(&converted_int, &converted_frac);
-    assert!(result.starts_with("3039."));
+    assert_eq!(result, "3039.ADCC63F1");
 }
 
 #[test]
@@ -84,7 +84,7 @@ fn test_roundtrip_conversion() {
     let back_frac = convert_fractional_part(&dec_frac, 10, 16, 4);
     let result = format_result(&back_int, &back_frac);
     
-    assert!(result.starts_with("CAFE.BAB"));
+    assert_eq!(result, "CAFE.BABD");
 }
 
 #[test]
@@ -93,8 +93,8 @@ fn test_precision_handling() {
     let converted_frac_5 = convert_fractional_part(&frac_part, 10, 3, 5);
     let converted_frac_10 = convert_fractional_part(&frac_part, 10, 3, 10);
     
-    assert_eq!(converted_frac_5.len(), 5);
-    assert!(converted_frac_10.len() <= 10);
+    assert_eq!(converted_frac_5, vec![0, 2, 2, 2, 2]);
+    assert_eq!(converted_frac_10, vec![0, 2, 2, 2, 2, 2, 2, 2, 2, 2]);
 }
 
 #[test]
