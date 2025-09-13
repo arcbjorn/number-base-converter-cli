@@ -10,8 +10,16 @@ cargo build --release
 
 ## Usage
 
+### Command Line Mode
+
 ```bash
 ./target/release/base-converter --value <NUMBER> --from-base <BASE> --to-base <BASE> [--precision <DIGITS>]
+```
+
+### Interactive Mode
+
+```bash
+./target/release/base-converter --interactive
 ```
 
 ### Options
@@ -20,6 +28,7 @@ cargo build --release
 - `-s, --from-base` - Source base (2-36)
 - `-t, --to-base` - Target base (2-36)
 - `-p, --precision` - Decimal places for fractions (default: 10)
+- `-i, --interactive` - Run in interactive mode
 
 ### Examples
 
@@ -32,6 +41,9 @@ cargo build --release
 
 # Decimal to hex with 8 decimal places
 ./target/release/base-converter --value 3.14159 --from-base 10 --to-base 16 -p 8
+
+# Interactive mode
+./target/release/base-converter --interactive
 ```
 
 ## Features
@@ -39,6 +51,7 @@ cargo build --release
 - Integer and fractional number support
 - Bases 2-36 using digits 0-9 and letters A-Z
 - Configurable precision for fractional parts
+- Interactive mode for continuous conversions
 - Input validation and error handling
 - Decimal reference output for non-decimal conversions
 
