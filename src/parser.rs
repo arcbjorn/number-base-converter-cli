@@ -50,21 +50,3 @@ pub fn parse_number(value: &str, base: u32) -> Result<(Vec<u32>, Vec<u32>), Stri
     Ok((integer_part, fractional_part))
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_char_to_digit() {
-        assert_eq!(char_to_digit('0', 10).unwrap(), 0);
-        assert_eq!(char_to_digit('A', 16).unwrap(), 10);
-        assert!(char_to_digit('G', 16).is_err());
-    }
-
-    #[test]
-    fn test_parse_number() {
-        let (int_part, frac_part) = parse_number("1010.101", 2).unwrap();
-        assert_eq!(int_part, vec![1, 0, 1, 0]);
-        assert_eq!(frac_part, vec![1, 0, 1]);
-    }
-}

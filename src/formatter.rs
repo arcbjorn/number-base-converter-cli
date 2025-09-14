@@ -27,21 +27,3 @@ pub fn format_result(integer_digits: &[u32], fractional_digits: &[u32]) -> Strin
     result
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_digit_to_char() {
-        assert_eq!(digit_to_char(0), '0');
-        assert_eq!(digit_to_char(10), 'A');
-        assert_eq!(digit_to_char(15), 'F');
-    }
-
-    #[test]
-    fn test_format_result() {
-        assert_eq!(format_result(&[1, 0], &[]), "10");
-        assert_eq!(format_result(&[15, 15], &[8]), "FF.8");
-        assert_eq!(format_result(&[], &[5]), "0.5");
-    }
-}

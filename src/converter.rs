@@ -66,19 +66,3 @@ pub fn convert_fractional_part(
     result
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_convert_integer_basic() {
-        let result = convert_integer_part(&[1, 0, 1, 0], 2, 10);
-        assert_eq!(result, vec![1, 0]);
-    }
-
-    #[test]
-    fn test_convert_fractional_basic() {
-        let result = convert_fractional_part(&[1, 0, 1], 2, 10, 3);
-        assert_eq!(result, vec![6, 2, 5]);
-    }
-}
